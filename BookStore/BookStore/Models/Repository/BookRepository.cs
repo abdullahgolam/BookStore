@@ -31,27 +31,32 @@ namespace BookStore.Models.Repository
 
         public void Add(Book entity)
         {
-            throw new NotImplementedException();
+            books.Add(entity);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var book = Find(id);
+            books.Remove(book);
         }
 
         public Book Find(int id)
         {
-            throw new NotImplementedException();
+            var book = books.SingleOrDefault(b => b.Id == id);
+            return book;
         }
 
         public IList<Book> List()
         {
-            throw new NotImplementedException();
+            return books;
         }
 
-        public void Update(int id, Book entity)
+        public void Update(int id, Book NewEntity)
         {
-            throw new NotImplementedException();
+            var book = Find(id);
+            book.Title = NewEntity.Title;
+            book.Author = NewEntity.Author;
+            book.Description = NewEntity.Description; 
         }
     }
 }
