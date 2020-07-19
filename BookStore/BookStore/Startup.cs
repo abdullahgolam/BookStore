@@ -41,7 +41,7 @@ namespace BookStore
             //        await context.Response.WriteAsync("Hello World!");
             //    });
             //});
-
+            app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
         }
     }
