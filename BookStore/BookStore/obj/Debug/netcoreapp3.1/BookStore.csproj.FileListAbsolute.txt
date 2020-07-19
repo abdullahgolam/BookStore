@@ -110,3 +110,8 @@ C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.
 C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Author\Edit.cshtml.g.cs
 C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.csprojAssemblyReference.cache
+C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Author\Delete.cshtml.g.cs
+C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Book\Index.cshtml.g.cs
+C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Book\Details.cshtml.g.cs
+C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Book\Create.cshtml.g.cs
+C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Book\Edit.cshtml.g.cs
