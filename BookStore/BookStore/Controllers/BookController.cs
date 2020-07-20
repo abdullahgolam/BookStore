@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -55,14 +55,15 @@ namespace BookStore.Controllers
                 if (model.AuthorId == -1)
                 {
                     ViewBag.Message = "Please select an author from the list";
-                    
+
                     var vmodel = new BookAuthorViewModel
                     {
                         Authors = FillSelectList()
                     };
 
                     return View(vmodel);
-                } else
+                }
+                else
                 {
                     var author = authorRepository.Find(model.AuthorId);
                     Book book = new Book
@@ -76,7 +77,7 @@ namespace BookStore.Controllers
 
                     return RedirectToAction(nameof(Index));
                 }
-                
+
             }
             catch
             {
@@ -112,7 +113,7 @@ namespace BookStore.Controllers
             {
                 var author = authorRepository.Find(viewModel.AuthorId);
                 Book book = new Book
-                {                    
+                {
                     Title = viewModel.Title,
                     Description = viewModel.Description,
                     Author = author
@@ -131,16 +132,19 @@ namespace BookStore.Controllers
         // GET: BookController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var book = bookRepository.Find(id);
+
+            return View(book);
         }
 
         // POST: BookController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult ConfirmDelete(int id)
         {
             try
             {
+                bookRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -151,7 +155,7 @@ namespace BookStore.Controllers
         List<Author> FillSelectList()
         {
             var authors = authorRepository.List().ToList();
-            authors.Insert(0, new Author {Id = -1, FullName = "--Please Select an author--" });
+            authors.Insert(0, new Author { Id = -1, FullName = "--Please Select an author--" });
 
             return authors;
         }
