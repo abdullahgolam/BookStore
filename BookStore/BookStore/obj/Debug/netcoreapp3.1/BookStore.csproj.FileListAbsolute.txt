@@ -99,7 +99,6 @@ C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.
 C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.TagHelpers.output.cache
 C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.RazorCoreGenerate.cache
 C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Author\Index.cshtml.g.cs
-C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.RazorTargetAssemblyInfo.cs
 C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\BookStore.Views.pdb
 C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Author\Details.cshtml.g.cs
@@ -115,3 +114,5 @@ C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.
 C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Book\Details.cshtml.g.cs
 C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Book\Create.cshtml.g.cs
 C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Book\Edit.cshtml.g.cs
+C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Book\Delete.cshtml.g.cs
+C:\Users\abdul\source\repos\BookStore\BookStore\BookStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Validation.cshtml.g.cs

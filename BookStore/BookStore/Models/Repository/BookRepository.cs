@@ -16,22 +16,34 @@ namespace BookStore.Models.Repository
             {
                 new Book
                 {
-                    Id = 1, Title= "C# Programming", Description="No Description", 
+                    Id = 1,
+                    Title = "C# Programming",
+                    Description ="No Description",
+                    ImageUrl = "Abdullah.png",
                     Author = new Author{ Id = 2 }
                 },
                 new Book
                 {
-                    Id = 2, Title= "Java Programming", Description="Nothing", Author = new Author()
+                    Id = 2,
+                    Title= "Java Programming",
+                    Description="Nothing",
+                    ImageUrl = "Marwah.png",
+                    Author = new Author()
                 },
                 new Book
                 {
-                    Id = 3, Title= "Python Programming", Description="No Data", Author = new Author()
+                    Id = 3, 
+                    Title= "Python Programming", 
+                    Description="No Data", 
+                    ImageUrl = "Mohammed.png",
+                    Author = new Author()
                 },
             };
         }
 
         public void Add(Book entity)
         {
+            entity.Id = books.Max(b => b.Id) + 1;
             books.Add(entity);
         }
 
@@ -55,9 +67,11 @@ namespace BookStore.Models.Repository
         public void Update(int id, Book NewEntity)
         {
             var book = Find(id);
+
             book.Title = NewEntity.Title;
+            book.Description = NewEntity.Description;
             book.Author = NewEntity.Author;
-            book.Description = NewEntity.Description; 
+            book.ImageUrl = NewEntity.ImageUrl;
         }
     }
 }
