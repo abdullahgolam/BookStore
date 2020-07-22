@@ -62,6 +62,7 @@ namespace BookStore.Models.Repository
         public IList<Book> List()
         {
             return books;
+
         }
 
         public void Update(int id, Book NewEntity)
