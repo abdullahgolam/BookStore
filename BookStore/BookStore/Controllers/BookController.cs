@@ -140,13 +140,15 @@ namespace BookStore.Controllers
                     fileName = viewModel.File.FileName;
                     string fullPath = Path.Combine(uploads, fileName);
 
-                    // delete the old file
+                    
                     string oldFileName = bookRepository.Find(viewModel.BookId).ImageUrl;
                     string fullOldPath = Path.Combine(uploads, oldFileName);
 
                     if (fullPath != fullOldPath)
                     {
+                        // Delete the old file
                         System.IO.File.Delete(fullOldPath);
+
                         // Save the new file
                         viewModel.File.CopyTo(new FileStream(fullPath, FileMode.Create));
                     }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\abdul\\source\\repos\\BookStore\\BookStore\\BookStore\\BookStore.csproj": {}
+    "C:\\Users\\abdul\\source\\repos\\Bookstore\\Bookstore\\BookStore\\BookStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\abdul\\source\\repos\\BookStore\\BookStore\\BookStore\\BookStore.csproj": {
+    "C:\\Users\\abdul\\source\\repos\\Bookstore\\Bookstore\\BookStore\\BookStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abdul\\source\\repos\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
+        "projectUniqueName": "C:\\Users\\abdul\\source\\repos\\Bookstore\\Bookstore\\BookStore\\BookStore.csproj",
         "projectName": "BookStore",
-        "projectPath": "C:\\Users\\abdul\\source\\repos\\BookStore\\BookStore\\BookStore\\BookStore.csproj",
+        "projectPath": "C:\\Users\\abdul\\source\\repos\\Bookstore\\Bookstore\\BookStore\\BookStore.csproj",
         "packagesPath": "C:\\Users\\abdul\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abdul\\source\\repos\\BookStore\\BookStore\\BookStore\\obj\\",
+        "outputPath": "C:\\Users\\abdul\\source\\repos\\Bookstore\\Bookstore\\BookStore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,6 +41,20 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.3, )"

@@ -25,7 +25,7 @@ namespace BookStore.Models.Repository
                     Id=3, FullName="Mohammed"
                 },
             };
-        }
+        }  
         public void Add(Author entity)
         {
             entity.Id = authors.Max(a => a.Id) + 1;
