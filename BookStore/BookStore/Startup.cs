@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Routing;
 
 namespace BookStore
 {
@@ -54,7 +55,9 @@ namespace BookStore
             //    });
             //});
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(Route => {
+                Route.MapRoute("default", "{controller=Book}/{action=Index}/{id?}");
+            });
         }
     }
 }

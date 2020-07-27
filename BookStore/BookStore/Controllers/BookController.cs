@@ -62,15 +62,7 @@ namespace BookStore.Controllers
 
                 try
                 {
-                    string fileName = string.Empty;
-
-                    if (model.File != null)
-                    {
-                        string uploads = Path.Combine(hosting.WebRootPath, "uploads");
-                        fileName = model.File.FileName;
-                        string fullPath = Path.Combine(uploads, fileName);
-                        model.File.CopyTo(new FileStream(fullPath, FileMode.Create));
-                    }
+                    string fileName = UploadFile(model.File) ?? string.Empty;
 
                     if (model.AuthorId == -1)
                     {
@@ -141,7 +133,7 @@ namespace BookStore.Controllers
                     string fullPath = Path.Combine(uploads, fileName);
 
                     
-                    string oldFileName = bookRepository.Find(viewModel.BookId).ImageUrl;
+                    string oldFileName = viewModel.ImageUrl;
                     string fullOldPath = Path.Combine(uploads, oldFileName);
 
                     if (fullPath != fullOldPath)
@@ -157,6 +149,7 @@ namespace BookStore.Controllers
                 var author = authorRepository.Find(viewModel.AuthorId);
                 Book book = new Book
                 {
+                    Id = viewModel.BookId,
                     Title = viewModel.Title,
                     Description = viewModel.Description,
                     Author = author,
@@ -167,7 +160,7 @@ namespace BookStore.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
@@ -212,6 +205,19 @@ namespace BookStore.Controllers
                 Authors = FillSelectList()
             };
             return vmodel;
+        }
+
+        string UploadFile(IFormFile file)
+        {
+            if (file != null)
+            {
+                string uploads = Path.Combine(hosting.WebRootPath, "uploads");
+                string fullPath = Path.Combine(uploads, file.FileName);
+                file.CopyTo(new FileStream(fullPath, FileMode.Create));
+                
+                return file.FileName;
+            }
+            return null;
         }
     }
 }
