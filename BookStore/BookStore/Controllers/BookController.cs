@@ -124,27 +124,7 @@ namespace BookStore.Controllers
         {
             try
             {
-                string fileName = string.Empty;
-
-                if (viewModel.File != null)
-                {
-                    string uploads = Path.Combine(hosting.WebRootPath, "uploads");
-                    fileName = viewModel.File.FileName;
-                    string fullPath = Path.Combine(uploads, fileName);
-
-                    
-                    string oldFileName = viewModel.ImageUrl;
-                    string fullOldPath = Path.Combine(uploads, oldFileName);
-
-                    if (fullPath != fullOldPath)
-                    {
-                        // Delete the old file
-                        System.IO.File.Delete(fullOldPath);
-
-                        // Save the new file
-                        viewModel.File.CopyTo(new FileStream(fullPath, FileMode.Create));
-                    }
-                }
+                string fileName = UploadFile(viewModel.File, viewModel.ImageUrl);
 
                 var author = authorRepository.Find(viewModel.AuthorId);
                 Book book = new Book
@@ -156,7 +136,6 @@ namespace BookStore.Controllers
                     ImageUrl = fileName
                 };
                 bookRepository.Update(viewModel.BookId, book);
-
 
                 return RedirectToAction(nameof(Index));
             }
@@ -197,7 +176,6 @@ namespace BookStore.Controllers
             return authors;
         }
 
-
         BookAuthorViewModel GetAllAuthors()
         {
             var vmodel = new BookAuthorViewModel
@@ -219,5 +197,27 @@ namespace BookStore.Controllers
             }
             return null;
         }
+
+        string UploadFile(IFormFile file, string imageUrl)
+        {
+            if (file != null)
+            {
+                string uploads = Path.Combine(hosting.WebRootPath, "uploads");
+                
+                string newPath = Path.Combine(uploads, file.FileName);
+                string oldPath = Path.Combine(uploads, imageUrl);
+
+                if (oldPath != newPath)
+                {                    
+                    System.IO.File.Delete(oldPath);             
+                    file.CopyTo(new FileStream(newPath, FileMode.Create));
+                }
+
+                return file.FileName;
+            }
+
+            return imageUrl;
+        }
+
     }
 }
