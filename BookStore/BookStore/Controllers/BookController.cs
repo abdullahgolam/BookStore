@@ -58,8 +58,7 @@ namespace BookStore.Controllers
         public ActionResult Create(BookAuthorViewModel model)
         {
             if (ModelState.IsValid)
-            {
-
+            {                
                 try
                 {
                     string fileName = UploadFile(model.File) ?? string.Empty;
@@ -139,7 +138,7 @@ namespace BookStore.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return View();
             }
@@ -202,14 +201,14 @@ namespace BookStore.Controllers
         {
             if (file != null)
             {
-                string uploads = Path.Combine(hosting.WebRootPath, "uploads");
+                string uploads = Path.Combine(hosting.WebRootPath, "uploads");                
                 
-                string newPath = Path.Combine(uploads, file.FileName);
+                string newPath = Path.Combine(uploads, file.FileName);                
                 string oldPath = Path.Combine(uploads, imageUrl);
 
                 if (oldPath != newPath)
                 {                    
-                    System.IO.File.Delete(oldPath);             
+                    System.IO.File.Delete(oldPath);              
                     file.CopyTo(new FileStream(newPath, FileMode.Create));
                 }
 
@@ -217,6 +216,13 @@ namespace BookStore.Controllers
             }
 
             return imageUrl;
+        }
+
+        public ActionResult Search(string term)
+        {
+            var result = bookRepository.Search(term);
+
+            return View("Index", result);
         }
 
     }
